@@ -1,15 +1,7 @@
-import { ReactNode } from "react";
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import CreateAdmin from "../pages/admin/CreateAdmin";
 import CreateFaculty from "../pages/admin/CreateFaculty";
 import CreateStudent from "../pages/admin/CreateStudent";
-import { NavLink } from "react-router-dom";
-
-type TSidebarItem = {
-    key: string;
-    label: ReactNode;
-    children?: TSidebarItem[];
-}
 
 export const adminPaths = [
     {
@@ -54,6 +46,8 @@ export const adminPaths = [
     },
 ];
 
+//* Admin routes without using utils function
+
 // export const adminRoutes = adminPaths.reduce((acc : TRoute[], item) => {
 //     if(item.path && item.element) {
 //         acc.push({
@@ -73,28 +67,32 @@ export const adminPaths = [
 //     return acc;
 // }, []);
 
-export const adminSidebarItems = adminPaths.reduce((acc : TSidebarItem[], item) => {
-    if(item.path && item.name) {
-        acc.push({
-            key: item.name,
-            label: <NavLink to={`/admin/${item.path}`}>{item.name}</NavLink>
-        })
-    }
+//* Admin sidebar menu items without using utils function
+
+// export const adminSidebarItems = adminPaths.reduce((acc : TSidebarItem[], item) => {
+//     if(item.path && item.name) {
+//         acc.push({
+//             key: item.name,
+//             label: <NavLink to={`/admin/${item.path}`}>{item.name}</NavLink>
+//         })
+//     }
     
-    if(item.children) {
-        acc.push({
-            key: item.name,
-            label: item.name,
-            children: item.children.map(child => {
-                return {
-                    key: child.name,
-                    label: <NavLink to={`/admin/${child.path}`}>{child.name}</NavLink>
-                }
-            })
-        })
-    }
-    return acc;
-}, []);
+//     if(item.children) {
+//         acc.push({
+//             key: item.name,
+//             label: item.name,
+//             children: item.children.map(child => {
+//                 return {
+//                     key: child.name,
+//                     label: <NavLink to={`/admin/${child.path}`}>{child.name}</NavLink>
+//                 }
+//             })
+//         })
+//     }
+//     return acc;
+// }, []);
+
+//! Hard coded admin paths
 
 // const adminPaths = [
 //     {

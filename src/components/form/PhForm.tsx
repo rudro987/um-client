@@ -1,8 +1,15 @@
-const PhForm = () => {
+import { FormProvider, useForm } from "react-hook-form";
+
+const PhForm = ({ onSubmit,children }) => {
+
+    const methods = useForm();
+
   return (
-    <div>
-      <h1>This is PhForm Component</h1>
-    </div>
+    <FormProvider {...methods}>
+        <form onSubmit = {methods.handleSubmit(onSubmit)}>
+      { children }
+    </form>
+    </FormProvider>
   )
 };
 

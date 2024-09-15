@@ -1,15 +1,17 @@
 import { Input } from "antd";
 import { Controller } from "react-hook-form";
 
+type TInputProps = {
+  type: string;
+  name: string;
+  label: string;
+}
+
 const PhInputs = ({
   type,
   name,
   label,
-}: {
-  type: string;
-  name: string;
-  label: string;
-}) => {
+}: TInputProps ) => {
 
   return (
     <div style={{ marginBottom: "20px" }}>
